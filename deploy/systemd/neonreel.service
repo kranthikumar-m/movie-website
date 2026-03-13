@@ -1,0 +1,17 @@
+[Unit]
+Description=NeonReel Next.js Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/neonreel
+Environment=NODE_ENV=production
+EnvironmentFile=/var/www/neonreel/.env.local
+ExecStart=/usr/bin/npm run start -- -p 3000
+Restart=always
+RestartSec=5
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target
